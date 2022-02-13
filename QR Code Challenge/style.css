@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "outfit";
+  src: url("./outfit.ttf");
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: #d5e1ef;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.container .card {
+  width: 320px;
+  border-radius: 20px;
+  padding: 1rem;
+  background: white;
+}
+.container .card .top {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.container .card .top img {
+  width: 100%;
+  border-radius: 15px;
+}
+.container .card .bottom {
+  font-family: "outfit";
+  text-align: center;
+  padding: 0.5rem;
+}
+.container .card .bottom .title {
+  font-weight: 700;
+  color: #1f3251;
+  margin-bottom: 1rem;
+  font-size: x-large;
+}
+.container .card .bottom .text {
+  font-weight: 400;
+  color: #7b879d;
+  margin-bottom: 1rem;
+  font-size: large;
+}
+
+/*# sourceMappingURL=style.css.map */
