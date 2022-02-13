@@ -1,0 +1,11 @@
+@mixin outline-btn($nom,$variable) {
+    &.btn-#{$nom}{
+        color: $variable;
+        border-color: $variable;
+
+        &:hover{
+            background: $variable;
+            color: white;
+        }
+    }
+}

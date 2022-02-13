@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "inconsolata";
+  src: url("./inconsolata.ttf");
+}
+@font-face {
+  font-family: "roboto";
+  src: url("./roboto.ttf");
+}
+.text-primary {
+  color: #ff8578;
+}
+
+.btn-outline, .btn {
+  display: inline-block;
+  outline: none;
+  padding: 0.5rem 0.85rem;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn {
+  color: white;
+  background: black;
+}
+.btn.btn-primary {
+  background: #ff8578;
+}
+.btn.btn-secondary {
+  background: #95a8b6;
+}
+
+.btn-outline {
+  border: black 2px solid;
+  color: black;
+  background: transparent;
+}
+.btn-outline.btn-primary {
+  color: #ff8578;
+  border-color: #ff8578;
+}
+.btn-outline.btn-primary:hover {
+  background: #ff8578;
+  color: white;
+}
+.btn-outline.btn-secondary {
+  color: #95a8b6;
+  border-color: #95a8b6;
+}
+.btn-outline.btn-secondary:hover {
+  background: #95a8b6;
+  color: white;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: #fafbfd;
+  font-family: "roboto";
+}
+
+header {
+  padding: 1rem 3rem 0;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header .logo img {
+  height: 80%;
+  margin-right: 15px;
+}
+header .logo .name {
+  font-size: xx-large;
+  font-weight: 700;
+  color: #ff8578;
+  text-transform: uppercase;
+}
+header .logo .name span:nth-child(2) {
+  color: #95a8b6;
+}
+@media (max-width: 850px) {
+  header .logo .name {
+    font-size: large;
+  }
+}
+@media (max-width: 850px) {
+  header {
+    height: 80px;
+  }
+}
+header .menu {
+  display: flex;
+  height: 100%;
+}
+header .menu .menu-btn {
+  display: none;
+  margin-right: 10px;
+}
+header .menu .menu-btn img {
+  height: 80%;
+}
+@media (max-width: 850px) {
+  header .menu .menu-btn {
+    display: block;
+  }
+}
+header .menu .menu-links {
+  display: flex;
+  margin: auto;
+  height: fit-content;
+}
+@media (max-width: 850px) {
+  header .menu .menu-links {
+    display: none;
+  }
+}
+header .menu .menu-links .link {
+  color: #95a8b6;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: large;
+  transition: 0.3s;
+}
+header .menu .menu-links .link.active {
+  color: #ff8578;
+  font-weight: 600;
+}
+header .menu .menu-links .link:hover:not(.active) {
+  color: #ffb3ab;
+}
+@media (max-width: 850px) {
+  header {
+    padding: 1rem;
+  }
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #95a8b6;
+}
+.container .box-left {
+  font-family: "inconsolata";
+  width: 50%;
+  padding: 0 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.container .box-left .hello {
+  padding-left: 30px;
+  position: relative;
+  font-size: medium;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+.container .box-left .hello::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 25px;
+  height: 2px;
+  background: #95a8b6;
+  transform: translateY(-50%);
+}
+.container .box-left .title {
+  font-size: x-large;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.container .box-left .text {
+  font-size: 18px;
+  margin-bottom: 4rem;
+}
+.container .box-left .btn-links {
+  display: flex;
+}
+.container .box-left .btn-links a {
+  margin-right: 1rem;
+}
+.container .box-right {
+  width: 50%;
+}
+.container .box-right img {
+  width: 90%;
+  margin: 0 auto;
+}
+@media (max-width: 850px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .container .box-right {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .container .box-left {
+    width: 90%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
