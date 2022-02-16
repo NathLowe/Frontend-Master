@@ -1,0 +1,42 @@
+@use "sass:map";
+
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+@function color-to-string($variable){
+  @return str-replace("#{$variable}",'#','');
+}
+
+@function fading-keyframes($action:'go',$direction:'right'){
+  $opacity-0 : 1;
+  $opacity-100:0;
+  $translate-0:0;
+  $translate-100:50px;
+  @if ($action == 'go'){
+   @if($direction == 'left'){
+     $translate-100:-50px;
+   }
+  }@else{
+    $opacity-0: 0;
+    $opacity-100: 1;
+    $translate-0:50px;
+    $translate-100:0;
+    @if($direction == 'right'){
+      $translate-0: -50px;
+    }
+  }
+
+  @return ('opacity-0':$opacity-0,'opacity-100':$opacity-100,'translate-0':$translate-0,'translate-100':$translate-100);
+
+}

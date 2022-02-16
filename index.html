@@ -21,32 +21,74 @@
         </div>
         <div class="menu">
             <div class="menu-btn">
-                <img src="./images/menu-btn.png" alt="">
+                
             </div>
             <div class="menu-links">
-                <a href="#" class="link active">Home</a>
-                <a href="#" class="link">About</a>
-                <a href="#" class="link">Portfolio</a>
-                <a href="#" class="link">Contact</a>
+                <a href="#" page="1" class="link active">Home</a>
+                <a href="#" page="2" class="link">About</a>
+                <a href="#" page="3" class="link">Portfolio</a>
+                <a href="#" page="4" class="link">Contact</a>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <div class="box-left">
-            <div class="hello">Hello</div>
-            <div class="title">I am <span class="text-primary">Nathan Lowe</span> from Vina Programming.</div>
-            <div class="text">
-                I am a self-taught and freelance in web programming since 2021. You could take a look on somes of the projects I have fulfilled in my portfolio and contact me for more informations.
+        <div class="container-inner">
+            <div class="page page-home">
+                <div class="box-left">
+                    <div class="hello">Hello</div>
+                    <div class="title">I am <span class="text-primary">Nathan Lowe</span> from Vina Programming.</div>
+                    <div class="text">
+                        I am a self-taught and freelance in web programming since 2021. You could take a look on somes of the projects I have fulfilled in my portfolio and contact me for more informations.
+                    </div>
+                    <div class="btn-links">
+                        <a href="#" page="3" class="click-link btn-outline btn-secondary">Portfolio</a>
+                        <a href="#" page="4" class="click-link btn btn-primary">Contact</a>
+                    </div>
+                </div>
+                <div class="box-right">
+                    <img src="./images/devboy.png" alt="">
+                </div>
             </div>
-            <div class="btn-links">
-                <a href="#" class="btn-outline btn-secondary">Portfolio</a>
-                <a href="#" class="btn btn-primary">Contact</a>
+
+            <div class="page page-about">
+                <h1>About us</h1>
             </div>
-        </div>
-        <div class="box-right">
-            <img src="./images/devboy.png" alt="">
+
+            <div class="page page-portfolio">
+                <h1>Portfolio</h1>
+                <div class="portfolio-container">
+                    <div class="group">
+                        <h3 class="title">Frontend Master</h3>
+                        <div class="description">All the Frontend Master's challenges I have fulfilled.</div>
+                        <div class="portfolio">
+                            <div class="card qr-code">
+                                <a href="./qr-code/index.html"></a>
+                                <img class="img-to-background" src="./qr-code/preview.png">
+                                <div class="info hide">
+                                    <span class="name">QR CODE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page page-contact">
+                <h1>Contact me</h1>
+                <div class="line">
+                    <div class="title">E-mail :</div>
+                    <div class="content">vinaprogramming@gmail.com</div>
+                </div>
+                <div class="line">
+                    <div class="title">Fiverr :</div>
+                    <div class="content"></div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+    <script src="./app.js"></script>
 </body>
 </html>

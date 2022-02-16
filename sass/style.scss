@@ -1,9 +1,13 @@
+@import './libs/functions.scss';
 @import './libs/mixins.scss';
 
 $primary:#ff8578;
 $secondary: #95a8b6 ;
+$breakpoint: 850px;
 *{
     box-sizing: border-box;
+    --primary:$primary;
+    --secondary:$secondary;
 }
 
 @font-face {
@@ -16,6 +20,34 @@ $secondary: #95a8b6 ;
     src: url('./roboto.ttf');
 }
 
+@include fading('go','right');
+@include fading('go','left');
+@include fading('arrive','right');
+@include fading('arrive','left');
+@include secoue;
+
+.secoue{
+    animation: secoue 1s;
+}
+.hide{
+    opacity: 0;
+}
+.img-to-background{
+    display: none;
+}
+.arrive-left{
+    animation: arrive-left 0.5s ease-in;
+}
+.arrive-right{
+    animation: arrive-right 0.5s ease-in;
+}
+.go-left{
+    animation: go-left 0.5s ease-out;
+}
+.go-right{
+    animation: go-right 0.5s ease-out;
+}
+
 .text-primary{
     color: $primary;
 }
@@ -24,6 +56,7 @@ $secondary: #95a8b6 ;
     display: inline-block;
     outline: none;
     padding: 0.5rem 0.85rem;
+    border: black 2px solid;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 1px;
@@ -37,15 +70,16 @@ $secondary: #95a8b6 ;
     background: black;
     &.btn-primary{
         background: $primary;
+        border-color: $primary;
     }
     &.btn-secondary{
         background: $secondary;
+        border-color: $secondary;
     }
 }
 
 .btn-outline{
     @extend %btn;
-    border: black 2px solid;
     color: black;
     background: transparent;
 
@@ -87,25 +121,28 @@ header{
             span:nth-child(2){
                 color: $secondary;
             }
-            @media (max-width: 850px) {
+            @media (max-width: $breakpoint) {
                 font-size: large;;
             }
         }
     }
-    @media (max-width: 850px) {
+    @media (max-width: $breakpoint) {
         height: 80px;
+        padding: 1rem;
     }
 
     .menu{
         display: flex;
         height: 100%;
+        position: relative;
         .menu-btn{
+            cursor: pointer;
             display: none;
             margin-right: 10px;
-            img{
-                height: 80%;
-            }
-            @media (max-width:850px) {
+            width: 20px;
+            height: 48px;
+            @include menu-btn-inactive(color-to-string($primary));
+            @media (max-width:$breakpoint) {
                 display: block;
             }
         }
@@ -114,9 +151,15 @@ header{
             display: flex;
             margin: auto;
             height: fit-content;
+            transition: 0.5s;
 
-            @media (max-width:850px) {
-                display: none;
+            @media (max-width:$breakpoint) {
+                position: absolute;
+                right: 30px;
+                z-index: 10;
+                flex-direction: column;
+                background: $primary;
+                transform: translateX(100px) rotateY(90deg);
             }
             .link{
                 color: $secondary;
@@ -134,18 +177,58 @@ header{
                 &:hover:not(.active){
                     color: lighten($primary, 10%);
                 }
+
+                @media (max-width:$breakpoint) {
+                    padding: 0.5rem 0.75rem;
+                    color: lighten($primary, 10%);
+
+                    &.active{
+                        color: white;
+                    }
+
+                    &:hover:not(.active){
+                        color: inherit;
+                    }
+    
+                }
+            }
+        }
+
+        @media (max-width:$breakpoint) {
+            &.active {
+                .menu-btn{
+                    margin: 0;
+                    @include menu-btn-active(color-to-string($primary));
+                }
+                .menu-links{
+                    transform: none;
+                }
             }
         }
     }
-
-    @media (max-width: 850px) {
-        padding: 1rem;
-    }
 }
-
 
 .container{
     width: 100%;
+    overflow-x: hidden;    
+    h1{
+        color: $primary;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .container-inner{
+        width: 400%;
+        transition: 2s;
+
+        .page{
+            float: left;
+            width: 25%;
+        }
+    }
+}
+
+.page-home{
     display: flex;
     align-items: center;
     color: $secondary;
@@ -156,6 +239,7 @@ header{
         padding: 0 5rem;
         display: flex;
         flex-direction: column;
+        margin: 1rem 0;
 
         .hello{
             padding-left: 30px;
@@ -190,9 +274,8 @@ header{
         }
 
         .btn-links{
-            display: flex;
             a{
-                margin-right: 1rem;
+                margin: 0 0.5rem 1rem;
             }
         }
     }
@@ -206,7 +289,7 @@ header{
         }
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: $breakpoint) {
         flex-direction: column-reverse;
 
         .box-right{
@@ -221,4 +304,98 @@ header{
         }
     }
 }
+
+.page-about{
+    padding: 0 3rem;
+    @media (max-width:$breakpoint) {
+        padding: 0 1rem;
+    }
+}
+
+.page-portfolio{
+    padding: 0 3rem;
+    margin-bottom: 1rem;
+    @media (max-width:$breakpoint) {
+        padding: 0 1rem;
+    }
+    .group{
+        margin-top: 1rem;
+        font-family: 'inconsolata';
+        color: $secondary;
+        .title{
+            color: lighten($primary,5%);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-size: x-large;
+        }
+        .description{
+            font-size: larger;
+        }
+        .portfolio{
+            margin-top: 1.5rem;
+            .card{
+                cursor: pointer;
+                float: left;
+                position: relative;
+                width: 200px;
+                height: 300px;
+                border-radius: 15px;
+                box-shadow: $secondary 0px 0px 15px;
+                margin: 1.5rem 1rem;
+                @media (max-width:$breakpoint) {
+                    width: 150px;
+                    height: 200px;
+                    margin: 0.75rem 0.5rem;
+                }
+                a{
+                    display: none;
+                }
+                .info{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    padding: 1rem 2rem 2rem;
+                    transition: 0.5s;
+                    background: linear-gradient(0deg, rgba($primary,0.5) , rgba($primary,0.6), rgba($primary,0.65));
+                    color: white;
+                    text-align: center;
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                    border-radius: 0 0 15px 15px;
+                    font-size: large;
+                }
+            }
+        }
+    }
+}
+
+.page-contact{
+    padding: 0 3rem;
+    @media (max-width:$breakpoint) {
+        padding: 0 1rem;
+    }
+
+    .line{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        color: $secondary;
+        margin-bottom: 0.5rem;
+        @media (max-width:$breakpoint) {
+            display: block;
+        }
+
+        .title{
+            font-size: large;
+            color: lighten($primary,7%);
+            margin-right: 0.5rem;
+            font-weight: 600;
+        }
+        .content{
+            padding: 0.5rem;
+        }
+    }
+}
+
 

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @mixin outline-btn($nom,$variable) {
     &.btn-#{$nom}{
         color: $variable;
@@ -6,6 +8,58 @@
         &:hover{
             background: $variable;
             color: white;
+        }
+    }
+}
+
+@mixin menu-btn-inactive($variable:'ff0000') {
+    background: center no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' fill='%23#{$variable}' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z'/%3E%3C/svg%3E");
+}
+
+@mixin menu-btn-active($variable:'ff0000') {
+    background: center no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' fill='%23#{$variable}' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+
+@mixin fading($action:'go',$direction:'right'){
+    $elements:fading-keyframes($action,$direction);
+    @keyframes #{$action}-#{$direction} {
+        0%{
+            opacity: #{map-get($map: $elements, $key: 'opacity-0')};
+            transform: translateX(#{map-get($map: $elements, $key: 'translate-0')});
+        }
+    
+        100%{
+            opacity: #{map-get($map: $elements, $key: 'opacity-100')};
+            transform: translateX(#{map-get($map: $elements, $key: 'translate-100')});
+        }
+    }
+}
+
+@mixin secoue(){
+    @keyframes secoue {
+        0%{
+            transform: translateX(0);
+        }
+        15%{
+            transform: translateX(15px);
+        }
+        30%{
+            transform: translateX(-15px);
+        }
+        45%{
+            transform: translateX(15px);
+        }
+        60%{
+            transform: translateX(-15px);
+        }
+        75%{
+            transform: translateX(15px);
+        }
+        90%{
+            transform: translateX(-15px);
+        }
+        100%{
+            transform: translateX(0);
         }
     }
 }
