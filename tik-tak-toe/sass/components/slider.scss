@@ -1,0 +1,41 @@
+//SLIDER SECTION
+.slider-container{
+    width: 100%;
+    margin: 1.5rem 0;
+    padding: 0 0.75rem;
+
+    .title{
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin: 0.5rem 0;
+        color: $primary;
+    }
+
+    .slider{
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        padding: 0.5rem 0;
+        .slider-inner{
+            display: flex;
+            flex-wrap: wrap;
+            @media #{$media-sm} {
+                flex-wrap: nowrap;
+            }
+            .epreuve{
+                @include child-transition();
+                width: $slider-element-w-6;
+                @media #{$media-xl} {
+                    width: $slider-element-w-5;
+                }
+                @media #{$media-sm} {
+                    width: $slider-element-w-3;
+                }
+                @media (max-width:450px) {
+                    width: $slider-element-w-2;
+                }
+            }
+        }
+    }
+}

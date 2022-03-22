@@ -1,0 +1,504 @@
+.modal-container .message-template.finish-message .winner.secondary .circle, .modal-container .message-template.finish-message .winner.secondary .cross, .modal-container .message-template.finish-message .winner.primary .circle, .modal-container .message-template.finish-message .winner.primary .cross, .container .game-page .game-container .card.secondary.validate .circle, .container .game-page .game-container .card.secondary.validate .cross, .container .game-page .game-container .card.secondary .circle, .container .game-page .game-container .card.secondary .cross, .container .game-page .game-container .card.primary.validate .circle, .container .game-page .game-container .card.primary.validate .cross, .container .game-page .game-container .card.primary .circle, .container .game-page .game-container .card.primary .cross, .container .game-page .header .restart .icon, .container .game-page .header .turn-container .player.circle, .container .game-page .header .turn-container .player.cross, .container .starting-page .selection-container .selection .element .circle, .container .starting-page .selection-container .selection .element .cross, .container .starting-page .selection-container .selection .element.selected .circle, .container .starting-page .selection-container .selection .element.selected .cross, .circle.light, .circle.button, .circle.secondary, .circle.primary, .circle, .cross.light, .cross.button, .cross.secondary, .cross.primary, .cross {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@keyframes height-to-100 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 200px;
+  }
+}
+@keyframes height-to-0 {
+  0% {
+    height: 200px;
+  }
+  100% {
+    height: 0;
+  }
+}
+.container .game-page .historic-container .wins, .container .game-page .game-container .card, .container .game-page .header .restart, .container .game-page .header .turn-container, .container .starting-page .selection-container .selection .element.selected, .container .starting-page .selection-container .selection, .container .starting-page .selection-container, .btn {
+  border-radius: 0.45em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Instruction";
+  src: url("./Instruction.ttf");
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+body {
+  background-color: #192a32;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-family: "Instruction";
+  font-size: 18px;
+}
+
+.cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23fff' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.cross.primary {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%2331c4be' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.cross.secondary {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23f2b237' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.cross.button {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.cross.light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23a8bec9' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+
+.circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23fff' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.circle.primary {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%2331c4be' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.circle.secondary {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23f2b237' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.circle.button {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.circle.light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23a8bec9' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.75em;
+  padding-bottom: calc(0.5rem + 6px);
+  margin: 0.5rem 0;
+  color: #192a32;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.btn.btn-primary {
+  background-color: #31c4be;
+  box-shadow: inset 0px -0.3em 2px #1f7b77;
+  cursor: pointer;
+}
+.btn.btn-primary:active {
+  box-shadow: inset 0px -0.2em 2px #1f7b77;
+}
+.btn.btn-secondary {
+  background-color: #f2b237;
+  box-shadow: inset 0px -0.3em 2px #c1830d;
+  cursor: pointer;
+}
+.btn.btn-secondary:active {
+  box-shadow: inset 0px -0.2em 2px #c1830d;
+}
+.btn.btn-light {
+  background-color: #a8bec9;
+  box-shadow: inset 0px -0.3em 2px #6f94a6;
+  cursor: pointer;
+}
+.btn.btn-light:active {
+  box-shadow: inset 0px -0.2em 2px #6f94a6;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 100vh;
+  margin: auto;
+}
+.container .game-container .card {
+  width: calc(133.3333333333px - 1.5rem);
+  height: calc(133.3333333333px - 1.5rem);
+}
+.container .historic-container .wins {
+  width: calc(133.3333333333px - 1.5rem);
+}
+@media (max-width: 420px) {
+  .container {
+    width: 300px;
+  }
+  .container .game-container .card {
+    width: calc(100px - 1.5rem);
+    height: calc(100px - 1.5rem);
+  }
+  .container .historic-container .wins {
+    width: calc(100px - 1.5rem);
+  }
+}
+.container .page-template {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fade-in 0.5s both;
+  z-index: 2;
+  padding: 1rem;
+}
+.container .page-template.hide {
+  display: none;
+}
+.container .page-template.hiding {
+  animation: fade-out 0.3s both linear;
+}
+.container .page-template .btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.container .page-template .btn-container .sign {
+  width: 25px;
+  height: 25px;
+  margin: 0 0.125rem;
+}
+.container .starting-page .selection-container {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #1f3540;
+  margin-bottom: 2rem;
+  color: #a8bec9;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: inset 0px -0.3em 2px #111c21;
+  cursor: pointer;
+}
+.container .starting-page .selection-container:active {
+  box-shadow: inset 0px -0.2em 2px #111c21;
+}
+.container .starting-page .selection-container .title {
+  font-size: 20px;
+}
+.container .starting-page .selection-container .selection {
+  display: flex;
+  height: 3rem;
+  margin: 0.75rem 0;
+  background-color: #192a32;
+  padding: 0.375rem;
+}
+.container .starting-page .selection-container .selection .element {
+  width: 50%;
+  height: 100%;
+  padding: 0.375rem;
+}
+.container .starting-page .selection-container .selection .element > * {
+  width: 100%;
+  height: 100%;
+}
+.container .starting-page .selection-container .selection .element.selected {
+  background-color: #a8bec9;
+}
+.container .starting-page .selection-container .selection .element.selected .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23192a32' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .starting-page .selection-container .selection .element.selected .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23192a32' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .starting-page .selection-container .selection .element .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23a8bec9' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .starting-page .selection-container .selection .element .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23a8bec9' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .starting-page .selection-container .message {
+  font-size: 13px;
+  opacity: 0.8;
+}
+.container .game-page .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+.container .game-page .header .btn-container {
+  margin-bottom: 0;
+}
+.container .game-page .header .turn-container {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  padding-bottom: calc(0.25rem + 6px);
+  color: #a8bec9;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #1f3540;
+  box-shadow: inset 0px -0.3em 2px #111c21;
+  cursor: pointer;
+}
+.container .game-page .header .turn-container:active {
+  box-shadow: inset 0px -0.2em 2px #111c21;
+}
+.container .game-page .header .turn-container .player {
+  transition: 0.2s;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 0.25rem;
+}
+.container .game-page .header .turn-container .player.cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23a8bec9' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .game-page .header .turn-container .player.circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23a8bec9' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .game-page .header .restart {
+  width: 30px;
+  height: 30px;
+  padding: 0.25rem;
+  padding-bottom: calc(0.25rem + 0.3em);
+  font-size: 12px;
+  background-color: #a8bec9;
+  box-shadow: inset 0px -0.3em 2px #698fa2;
+  cursor: pointer;
+}
+.container .game-page .header .restart:active {
+  box-shadow: inset 0px -0.2em 2px #698fa2;
+}
+.container .game-page .header .restart .icon {
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' viewBox='0 0 24 24'%3E%3Cpath d='M13.5 2c-5.629 0-10.212 4.436-10.475 10h-3.025l4.537 5.917 4.463-5.917h-2.975c.26-3.902 3.508-7 7.475-7 4.136 0 7.5 3.364 7.5 7.5s-3.364 7.5-7.5 7.5c-2.381 0-4.502-1.119-5.876-2.854l-1.847 2.449c1.919 2.088 4.664 3.405 7.723 3.405 5.798 0 10.5-4.702 10.5-10.5s-4.702-10.5-10.5-10.5z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .game-page .game-container .card {
+  background-color: #1f3540;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 0.5s, background-color 0.3s;
+  box-shadow: inset 0px -0.3em 2px #132128;
+  cursor: pointer;
+}
+.container .game-page .game-container .card:active {
+  box-shadow: inset 0px -0.2em 2px #132128;
+}
+.container .game-page .game-container .card.validate {
+  transition: background-color 0.5s, background-image 0.2s;
+}
+.container .game-page .game-container .card.primary .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%2331c4be' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.primary .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%2331c4be' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.primary.validate {
+  background-color: #31c4be;
+}
+.container .game-page .game-container .card.primary.validate .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.primary.validate .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.secondary .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23f2b237' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.secondary .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23f2b237' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.secondary.validate {
+  background-color: #f2b237;
+}
+.container .game-page .game-container .card.secondary.validate .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card.secondary.validate .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%231f3540' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.container .game-page .game-container .card .icon {
+  width: 60%;
+  height: 60%;
+}
+.container .game-page .game-container .card .icon.cross, .container .game-page .game-container .card .icon.circle {
+  animation: fade-in 0.3s;
+}
+.container .game-page .historic-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .game-page .historic-container .wins {
+  padding: 0.5rem 1rem;
+  color: #1f3540;
+  box-shadow: inset 0px -1px 5px rgba(0, 0, 0, 0.76);
+  height: 100%;
+}
+.container .game-page .historic-container .wins > * {
+  width: fit-content;
+  margin: auto;
+}
+.container .game-page .historic-container .wins .title {
+  font-size: 14px;
+  opacity: 0.8;
+}
+@media (max-width: 400px) {
+  .container .game-page .historic-container .wins .title {
+    font-size: 12px;
+  }
+}
+.container .game-page .historic-container .wins .number {
+  font-size: 18px;
+  font-weight: 600;
+}
+@media (max-width: 400px) {
+  .container .game-page .historic-container .wins .number {
+    font-size: 15px;
+  }
+}
+.container .game-page .historic-container .wins.cross-win {
+  background-color: #31c4be;
+}
+.container .game-page .historic-container .wins.ties-win {
+  background-color: #a8bec9;
+}
+.container .game-page .historic-container .wins.circle-win {
+  background-color: #f2b237;
+}
+
+.modal-container .message-template.restart-message .title, .modal-container .message-template.finish-message .title {
+  width: fit-content;
+  margin: auto;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 250;
+  animation: fade-in 0.5s linear;
+}
+.modal-container.hide {
+  display: none;
+}
+.modal-container.hiding {
+  animation: fade-out 0.3s 0.2s both linear;
+}
+.modal-container.hiding .modal-card {
+  animation: fade-out 0.3s both linear;
+}
+.modal-container .modal-card {
+  animation: fade-in 0.2s 0.4s linear both;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #1f3540;
+}
+.modal-container .message-template .btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container .message-template .btn-container .btn {
+  width: fit-content;
+  margin: 0.5rem;
+}
+.modal-container .message-template.hide {
+  display: none;
+}
+.modal-container .message-template.finish-message .title {
+  color: #a8bec9;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+.modal-container .message-template.finish-message .winner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #a8bec9;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0.75rem 0;
+}
+.modal-container .message-template.finish-message .winner .icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 0.75rem;
+}
+.modal-container .message-template.finish-message .winner .message {
+  text-align: end;
+}
+.modal-container .message-template.finish-message .winner.hide {
+  display: none;
+}
+.modal-container .message-template.finish-message .winner.primary {
+  color: #31c4be;
+}
+.modal-container .message-template.finish-message .winner.primary .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%2331c4be' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.modal-container .message-template.finish-message .winner.primary .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%2331c4be' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.modal-container .message-template.finish-message .winner.secondary {
+  color: #f2b237;
+}
+.modal-container .message-template.finish-message .winner.secondary .cross {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23f2b237' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z'/%3E%3C/svg%3E");
+}
+.modal-container .message-template.finish-message .winner.secondary .circle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' fill='%23f2b237' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z'/%3E%3C/svg%3E");
+}
+.modal-container .message-template.restart-message .title {
+  color: #a8bec9;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 5px;
+}
+.modal-container .message-template.restart-message .btn-container {
+  margin: 1.5rem 0 0;
+}
+
+/*# sourceMappingURL=style.css.map */

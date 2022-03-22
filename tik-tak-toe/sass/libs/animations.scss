@@ -1,0 +1,17 @@
+@keyframes height-to-100 {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 200px;
+    }
+}
+
+@keyframes height-to-0 {
+    0%{
+        height: 200px;
+    }
+    100%{
+        height: 0;
+    }
+}

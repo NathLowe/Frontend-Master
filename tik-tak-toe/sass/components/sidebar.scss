@@ -1,0 +1,67 @@
+$dashboard-icon-text-color:'fff';
+.dashboard-sidebar{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .link{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
+        overflow: hidden;
+        height: 45px;
+        padding: 0.5rem;
+        background: transparent;
+        font-size: 14px;
+        color: #fff;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+        transition: 0.3s;
+        opacity: 0.7;
+        .icon{
+            width: 20px;
+            height: 30px;
+            margin-right: 0.5rem;
+            flex: none;
+        }
+        .pays-icon{
+            @include globe-icon($text-color:$dashboard-icon-text-color);
+        }
+        .langue-icon{
+            @include language-icon($text-color:$dashboard-icon-text-color);
+        }
+        .etablissement-icon{
+            @include school-icon($text-color:$dashboard-icon-text-color);
+        }
+        .examen-icon{
+            @include exam-icon($text-color:$dashboard-icon-text-color);
+        }
+        .niveau-icon{
+            @include level-icon($text-color:$dashboard-icon-text-color);
+        }
+        .classe-icon{
+            @include class-icon($text-color:$dashboard-icon-text-color);
+        }
+        .serie-icon{
+            @include letters-icon($text-color:$dashboard-icon-text-color);
+        }
+        .matiere-icon{
+            @include chemistry-icon($text-color:$dashboard-icon-text-color);
+        }
+        .epreuve-icon{
+            @include papers-icon($text-color:$dashboard-icon-text-color);
+        }
+        &.active{
+            background: $dark;
+            color: white;
+            opacity: 1;
+        }
+        &:not(.active):hover{
+            background: lighten($color: $dark, $amount: 5%);
+            color: white;
+            opacity: 0.9;
+        }
+        // @include child-transition($animation:'fade-in',$animation2:'slide-in-down',$delay:0.4s);
+    }
+}

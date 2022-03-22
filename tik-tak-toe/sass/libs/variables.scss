@@ -1,0 +1,35 @@
+// Colors
+$primary:#2BD63C;
+$dark:darken($primary, 18%);
+
+$danger:rgb(231, 58, 58);
+$success:rgb(14, 184, 23);
+$warning:rgb(243, 221, 20);
+
+// Color text - without the #, used for the icons
+$primary-text: str_replace('#{$primary}','#','');
+$dark-text: str_replace('#{$dark}','#','');
+
+// Media sizing
+$size-xl: 1200px;
+$size-lg: 992px;
+$size-md: 768px;
+$size-sm: 576px;
+$media-xl: "(max-width: #{$size-xl})";
+$media-lg: "(max-width: #{$size-lg})";
+$media-md: "(max-width: #{$size-md})";
+$media-sm: "(max-width: #{$size-sm})";
+
+// Sliders
+$slider-element-w-6:calc(100%/6);
+$slider-element-w-5:calc(100%/5);
+$slider-element-w-4:calc(100%/4);
+$slider-element-w-3:calc(100%/3);
+$slider-element-w-2:calc(100%/2);
+$slider-element-w-1:calc(100%/1);
+
+// Page-Content
+$page-content-width:83%;
+
+// Header
+$header-height:60px;

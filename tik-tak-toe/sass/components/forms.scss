@@ -1,0 +1,64 @@
+.common-form{
+    .invalid{
+        border-color: darken($danger,15%);
+        background-color: rgba($danger,0.5);
+        color: white;
+    }
+    .form-title{
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 25px;
+        color: $dark;
+    }
+    .form-group{
+        margin: 1rem auto;
+    }
+    .max-content{
+        color: gray;
+        font-size: 12px;
+    }
+    .form-control{
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 0.5px solid grey;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: 0.2s;
+        outline: none;
+        &:focus{
+            border-color: rgba($primary,0.7);
+            box-shadow: 1px 1px 10px rgba($primary,0.5);
+        }
+    }
+    .form-link{
+        display: block;
+        text-decoration: none;
+        font-size: 15px;
+        color: gray;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover{
+            color: rgba($primary,0.7);
+        }
+    }
+
+    .submit{
+        margin-top: 2rem;
+        transition: 0.3s;
+        padding: .375em 0.5em;
+        background: $primary;
+        color: white;
+        opacity: 0.9;
+        cursor: pointer;
+        border: 1px solid $primary;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+}

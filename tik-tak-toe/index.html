@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Toe</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="page-template starting-page">
+            <div class="btn-container">
+                <div class="sign cross primary"></div>
+                <div class="sign circle secondary"></div>
+            </div>
+            <div class="selection-container">
+                <div class="title">Pick player 1's mark</div>
+                <div class="selection">
+                    <div class="element selected">
+                        <div player="cross" class="player cross"></div>
+                    </div>
+                    <div class="element">
+                        <div player="circle" class="player circle"></div>
+                    </div>
+                </div>
+                <div class="message">Remember : x goes first</div>
+            </div>
+            <button opponent="cpu" class="btn opponent btn-secondary vs-cpu">New Game (VS Cpu)</button>
+            <button opponent="P2" class="btn opponent btn-primary vs-player">New Game (VS player)</button>
+        </section>
+        <section class="page-template game-page hide">
+            <div class="header">
+                <div class="btn-container">
+                    <div class="sign cross primary"></div>
+                    <div class="sign circle secondary"></div>
+                </div>
+                <div class="turn-container">
+                    <div class="player cross"></div> <div>Turn</div>
+                </div>
+                <div class="restart">
+                    <div class="icon"></div>
+                </div>
+            </div>
+            <div class="game-container">
+                <div number="1" class="card"><div class="icon"></div></div>
+                <div number="2" class="card"><div class="icon"></div></div>
+                <div number="3" class="card"><div class="icon"></div></div>
+                <div number="4" class="card"><div class="icon "></div></div>
+                <div number="5" class="card"><div class="icon"></div></div>
+                <div number="6" class="card"><div class="icon"></div></div>
+                <div number="7" class="card"><div class="icon"></div></div>
+                <div number="8" class="card"><div class="icon"></div></div>
+                <div number="9" class="card"><div class="icon"></div></div>
+            </div>
+            <div class="historic-container">
+                <div class="wins cross-win">
+                    <div class="title">X (<span class="person">You</span>)</div>
+                    <div class="number">0</div>
+                </div>
+                <div class="wins ties-win">
+                    <div class="title">Ties</div>
+                    <div class="number">0</div>
+                </div>
+                <div class="wins circle-win">
+                    <div class="title">O (<span class="person">CPU</span>)</div>
+                    <div class="number">0</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="modal-container hide">
+        <div class="modal-card">
+            <div class="message-template finish-message hide">
+                <div class="title"><span class="state">you Won</span>!</div>
+                <div class="winner">
+                    <div class="icon"></div>
+                    <div class="message">Takes the round</div>
+                </div>
+                <div class="btn-container">
+                    <button class="btn quit btn-light">Quit</button>
+                    <button class="btn next btn-secondary">Next Round</button>
+                </div>
+            </div>
+            <div class="message-template restart-message hide">
+                <div class="title">Restart game ?</div>
+                <div class="btn-container">
+                    <button class="btn cancel btn-light">No, Cancel</button>
+                    <button class="btn restart btn-secondary">Yes, Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./app.js"></script>
+</body>
+</html>

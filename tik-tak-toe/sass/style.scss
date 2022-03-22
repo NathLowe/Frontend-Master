@@ -1,0 +1,502 @@
+@import './libs/functions.scss';
+@import './libs/mixins.scss';
+@import './libs/icons.scss';
+@import './libs/animations.scss';
+
+$background:#192a32;
+$primary:#31c4be;
+$secondary:#f2b237;
+$button:#1f3540;
+$light:#a8bec9;
+
+$background-text: str_replace('#{$background}','#','');
+$primary-text: str_replace('#{$primary}','#','');
+$secondary-text: str_replace('#{$secondary}','#','');
+$button-text: str_replace('#{$button}','#','');
+$light-text: str_replace('#{$light}','#','');
+
+//Fake Selectors
+%border-radius{
+    border-radius: 0.45em;
+}
+
+// Mixin
+@mixin box-shadow($color:#000) {
+    box-shadow: inset 0px -0.3em 2px #{$color};
+    cursor: pointer;
+    &:active{
+        box-shadow: inset 0px -0.2em 2px #{$color};
+    }
+}
+
+*{
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Instruction';
+    src: url("./Instruction.ttf");
+}
+
+@keyframes fade-in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+body{
+    background-color: $background;
+    // color: $background;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-family: 'Instruction';
+    font-size: 18px;
+}
+
+.cross{
+    @include x-icon;
+    &.primary{
+        @include x-icon($text-color:$primary-text)
+    }
+    &.secondary{
+        @include x-icon($text-color:$secondary-text)
+    }
+    &.button{
+        @include x-icon($text-color:$button-text)
+    }
+    &.light{
+        @include x-icon($text-color:$light-text)
+    }
+}
+
+.circle{
+    @include x-icon;
+    &.primary{
+        @include circle-icon($text-color:$primary-text)
+    }
+    &.secondary{
+        @include circle-icon($text-color:$secondary-text)
+    }
+    &.button{
+        @include circle-icon($text-color:$button-text)
+    }
+    &.light{
+        @include circle-icon($text-color:$light-text)
+    }
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    padding: 0.75em;
+    padding-bottom: calc(0.5rem + 6px);
+    margin: 0.5rem 0;
+    color:$background;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    @extend %border-radius;
+    &.btn-primary{
+        background-color: $primary;
+        @include box-shadow(darken($primary,18%))
+    }
+    &.btn-secondary{
+        background-color: $secondary;
+        @include box-shadow(darken($secondary,18%))
+    }
+    &.btn-light{
+        background-color: $light;
+        @include box-shadow(darken($light,18%))
+    }
+}
+
+.container{
+    position: relative;
+    width: 400px;
+    height: 100vh;
+    margin: auto;
+    .game-container .card{
+        width: calc((400px/3) - 1.5rem);
+        height: calc((400px/3) - 1.5rem);
+    }
+    .historic-container .wins{
+        width: calc((400px/3) - 1.5rem);
+    }
+    @media (max-width:420px) {
+        width: 300px;
+        .game-container .card{
+            width: calc((300px/3) - 1.5rem);
+            height: calc((300px/3) - 1.5rem);
+        }
+        .historic-container .wins{
+            width: calc((300px/3) - 1.5rem);
+        }
+    }
+
+    .page-template{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: fade-in 0.5s both;
+        z-index: 2;
+        padding: 1rem;
+        &.hide{
+            display: none;
+        }
+        &.hiding{
+            animation: fade-out 0.3s both linear;
+        }
+        .btn-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            .sign{
+                width: 25px;
+                height: 25px;
+                margin: 0 0.125rem;
+            }
+        }
+    }
+    .starting-page{
+        .selection-container{
+            width: 100%;
+            padding: 1.5rem;
+            background-color: $button;
+            margin-bottom: 2rem;
+            color: $light;
+            text-align: center;
+            letter-spacing: 1px;
+            @include box-shadow(darken($background,5%));
+            @extend %border-radius;
+            .title{
+                font-size: 20px;
+            }
+            .selection{
+                @extend %border-radius;
+                display: flex;
+                height: 3rem;
+                margin: 0.75rem 0;
+                background-color: $background;
+                padding: 0.375rem;
+                .element{
+                    width: 50%;
+                    height: 100%;
+                    padding: 0.375rem;
+                    &>*{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    &.selected{
+                        background-color: $light;
+                        @extend %border-radius;
+                        .cross{
+                            @include x-icon($text-color:$background-text);                            
+                        }
+                        .circle{
+                            @include circle-icon($text-color:$background-text);
+                        }
+                    }
+                    .cross{
+                        @include x-icon($text-color:$light-text);
+                    }
+                    .circle{
+                        @include circle-icon($text-color:$light-text);
+                    }
+                }
+            }
+            .message{
+                font-size: 13px;
+                opacity: 0.8;
+            }
+        }
+        
+    }
+    .game-page{
+        .header{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            .btn-container{
+                margin-bottom: 0;
+            }
+            .turn-container{
+                display: flex;
+                align-items: center;
+                padding: 0.25rem 0.75rem;
+                padding-bottom: calc(0.25rem + 6px);
+                color:$light;
+                font-size: 14px;
+                font-weight:600; 
+                background-color: $button;
+                @extend %border-radius;
+                @include box-shadow(darken($background,5%));
+                .player{
+                    transition: 0.2s;
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    margin-right: 0.25rem;
+                    &.cross{
+                        @include x-icon($text-color:$light-text);
+                    }
+                    &.circle{
+                        @include circle-icon($text-color:$light-text);
+                    }
+                }
+            }
+            .restart{
+                width: 30px;
+                height: 30px;
+                padding: 0.25rem;
+                padding-bottom: calc(0.25rem + 0.3em);
+                font-size: 12px;
+                background-color: $light;
+                @extend %border-radius;
+                @include box-shadow(darken($light,20%));
+                .icon{
+                    width: 100%;
+                    height: 100%;
+                    @include refresh-icon($text-color:$button-text);
+                }
+            }
+        }
+        .game-container{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            .card{
+                background-color: $button;
+                margin-bottom: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: background-image 0.5s, background-color 0.3s;
+                @extend %border-radius;
+                @include box-shadow(darken($button,7%));
+                &.validate{
+                    transition: background-color 0.5s, background-image 0.2s;
+                }
+                &.primary{
+                    .cross{
+                        @include x-icon($text-color:$primary-text);
+                    }
+                    .circle{
+                        @include circle-icon($text-color:$primary-text);
+                    }
+                    &.validate{
+                        background-color: $primary;
+                        .cross{
+                            @include x-icon($text-color:$button-text);
+                        }
+                        .circle{
+                            @include circle-icon($text-color:$button-text);
+                        }
+                    }
+                }
+                &.secondary{
+                    .cross{
+                        @include x-icon($text-color:$secondary-text);
+                    }
+                    .circle{
+                        @include circle-icon($text-color:$secondary-text);
+                    }
+                    &.validate{
+                        background-color: $secondary;
+                        .cross{
+                            @include x-icon($text-color:$button-text);
+                        }
+                        .circle{
+                            @include circle-icon($text-color:$button-text);
+                        }
+                    }
+                }
+                .icon{
+                    width: 60%;
+                    height: 60%;
+                    &.cross,&.circle{
+                        animation: fade-in 0.3s;
+                    }
+                }
+            }
+        }
+        .historic-container{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .wins{
+                padding: 0.5rem 1rem;
+                color: $button;
+                box-shadow: inset 0px -1px 5px rgba(0, 0, 0, 0.76);
+                height: 100%;
+                @extend %border-radius;
+                &>*{
+                    width: fit-content;
+                    margin: auto;
+                }
+                .title{
+                    font-size: 14px;
+                    opacity: 0.8;
+                    @media (max-width:400px) {
+                        font-size: 12px;
+                    }
+                }
+                .number{
+                    font-size: 18px;
+                    font-weight: 600;
+                    @media (max-width:400px) {
+                        font-size: 15px;
+                    }
+                }
+                &.cross-win{
+                    background-color: $primary;
+                }
+                &.ties-win{
+                    background-color: $light;
+                }
+                &.circle-win{
+                    background-color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+
+%centralise{
+    width: fit-content;
+    margin: auto;
+}
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: black, $alpha: 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 250;
+    animation: fade-in 0.5s linear;
+    &.hide{
+        display: none;
+    }
+    &.hiding{
+        animation: fade-out 0.3s 0.2s both linear;
+        .modal-card{
+            animation: fade-out 0.3s both linear;
+        }
+    }
+    .modal-card{
+        animation: fade-in 0.2s 0.4s linear both;
+        width: 100%;
+        padding: 1.5rem;
+        background-color: $button;
+    }
+    .message-template{
+        .btn-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .btn{
+                width: fit-content;
+                margin: 0.5rem;
+            }
+        }
+        &.hide{
+            display: none;
+        }
+        &.finish-message{
+            .title{
+                @extend %centralise;
+                color: $light;
+                font-size: 16px;
+                letter-spacing: 2px;
+                margin-bottom: 1rem;
+            }
+            .winner{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 28px;
+                color: $light;
+                font-weight: 700;
+                letter-spacing: 3px;
+                margin: 0.75rem 0;
+                .icon{
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 0.75rem;
+                }
+                .message{
+                    text-align: end;
+                }
+                &.hide{
+                    display: none;
+                }
+                &.primary{
+                    color: $primary;
+                    .cross{
+                        @include x-icon($text-color:$primary-text);
+                    }
+                    .circle{
+                        @include circle-icon($text-color:$primary-text);
+                    }
+                }
+                &.secondary{
+                    color: $secondary;
+                    .cross{
+                        @include x-icon($text-color:$secondary-text);
+                    }
+                    .circle{
+                        @include circle-icon($text-color:$secondary-text);
+                    }
+                }
+            }
+        }
+        &.restart-message{
+            .title{
+                @extend %centralise;
+                color: $light;
+                font-weight: 600;
+                font-size: 28px;
+                letter-spacing: 5px;
+            }
+            .btn-container{
+                margin: 1.5rem 0 0;
+            }
+        }
+    }
+}

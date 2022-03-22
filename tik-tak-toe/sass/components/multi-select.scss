@@ -1,0 +1,44 @@
+.multi-selector{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    input.d-none{
+        display: none!important;
+    }
+    .selection{
+        padding: 0.25rem;
+        background: $primary;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-right: 0.25rem;
+        color: white;
+        display: flex;
+        align-items: center;
+        .value{
+            display: block;
+        }
+        .remove{
+            cursor: pointer;
+            display: block;
+            width: 0.9em;
+            height: 0.9em;
+            margin-left: 0.25em;
+            @include x-icon($text-color:'fff');
+        }
+    }
+    .select-container{
+        display: flex;
+        align-items: center;
+        select{
+            width: auto!important;
+        }
+        .add{
+            margin-left: 0.25rem;
+            background-color: $dark;
+            padding: 0.25em 0.375em;
+            border-radius: 0.25em;
+            border: none;
+            color: white;
+        }
+    }
+}

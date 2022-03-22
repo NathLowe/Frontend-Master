@@ -1,0 +1,139 @@
+/* Table Styles */
+
+.table-responsive {
+    margin: 0.5rem 1rem;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    -webkit-font-smoothing: antialiased;
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+
+    td, th {
+    text-align: center;
+    padding: 8px;
+    }
+
+    td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+    }
+
+    thead th {
+        color: #ffffff;
+        background: lighten($color: $dark, $amount: 5%);
+
+        &:nth-child(odd) {
+            color: #ffffff;
+            background: lighten($color: $dark, $amount: 15%);
+        }
+    }
+
+    tr:nth-child(even) {
+        background: #F8F8F8;
+    }
+}
+
+/* Responsive */
+
+@media #{$media-sm} {
+    .table-responsive:not(.no-turn){
+        .fl-table {
+        display: block;
+        width: 100%;
+        }
+    
+        &::before {
+            content: "Scroll horizontally >";
+            display: block;
+            text-align: right;
+            font-size: 11px;
+            color: white;
+            padding: 3px;
+            background: lighten($color: $dark, $amount: 5%);
+        }
+    
+        .fl-table {
+        thead, tbody {
+            display: block;
+        }
+    
+        thead {
+            th {
+            display: block;
+            min-width: 50px;
+    
+            &:last-child {
+                border-bottom: none;
+            }
+            }
+    
+            float: left;
+        }
+    
+        tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+        }
+    
+        td, th {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px .625em .625em .625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+        }
+    
+        thead th {
+            text-align: left;
+            border-bottom: 1px solid #f7f7f9;
+        }
+    
+        tbody tr {
+            display: table-cell;
+    
+            &:nth-child(odd) {
+            background: none;
+            }
+        }
+    
+        tr {
+            &:nth-child(even) {
+            background: transparent;
+            }
+    
+            td {
+            &:nth-child(odd) {
+                background: #F8F8F8;
+                border-right: 1px solid #E6E4E4;
+            }
+    
+            &:nth-child(even) {
+                border-right: 1px solid #E6E4E4;
+            }
+            }
+        }
+    
+        tbody td {
+            display: block;
+            text-align: center;
+        }
+        }
+    }
+}
